@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta lang="utf-8">
+	<title>Trivia Questions</title>
+	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+</head>
+<body>
+
+<div id="container">
+	<div id="start-screen">
+		<div class="start-content">
+			<h3 id="start-heading">Are you the master of trivia?</h3>
+			<a href="#" id="start-quiz">Let's start!</a>
+		</div>
+	</div>
+</div>
+
+
+<script id="quiz-template" type="text/x-handlebars-template">
+    <div class="question-container">
+    	{{#if question}}
+        <p class="question">{{{question}}}</p>
+        {{/if}}
+         	{{#if multipleChoice}}
+         	<div class="left-align">
+         	<ul>
+	            {{#each ansOptions}}
+	            	<li class="multiple answer"><a href="#">{{letterindex @index}}. {{{this}}}</a></li>
+	            {{/each}}
+	       	</ul>
+	       </div>
+	        {{else}}
+	        <div class="ans-btns">
+		        <div class="boolean answer"><a href="#">True</a></div>
+		        <div class="boolean answer"><a href="#">False</a></div>
+		    </div>
+	        {{/if}}
+	    <span id="answer" css="display: none;"></span>
+	    <div class="content-footer">
+	    	<div class="btn-container">
+	        <button class="changelvl myButton" id="easybtn">Easier Question</button>
+	       	<button id="new-question" class="myButton">New Question</button>
+	        <button class="changelvl myButton" id="hardbtn">Harder Question</button>
+	    	</div>
+    	</div>
+    </div>
+</script>
+
+<script type="text/javascript" src="js/script.js"></script>
+
+</body>
+</html>
